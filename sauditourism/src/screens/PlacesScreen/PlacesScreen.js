@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, Image, ActivityIndicator} from 'react-native';
-import { ListItem } from 'react-native-elements';
 import axios from 'axios';
+import CustomizedListItem from '../../components/CustomizedListItem';
 export default class PlacesScreen extends Component {
     static navigationOptions = {
         title: 'Places',
@@ -22,17 +22,7 @@ export default class PlacesScreen extends Component {
         .catch((err) => console.log(err));
 
     }
-    renderItem = ({ item }) => {
-        console.log(item);
-        return (
-            <ListItem avatar={{ uri: item.thumb }}
-                roundAvatar
-                title={item.title}
-                subtitle={item.category.name}
-            />
-        )
-
-    }
+    renderItem = ({ item }) => ( <View style={{flex: 1,}}><CustomizedListItem item={item} /></View>)
     render() {
         if (this.state.data.length === 0) {
             return (
@@ -42,7 +32,7 @@ export default class PlacesScreen extends Component {
             )
         }
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1 , backgroundColor: '#EEEEEE',}}>
                 <FlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
