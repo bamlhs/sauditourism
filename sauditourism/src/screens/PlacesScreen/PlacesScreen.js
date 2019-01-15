@@ -1,47 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, Image } from 'react-native';
+import { View, Text, FlatList, Image, ActivityIndicator} from 'react-native';
 import { ListItem } from 'react-native-elements';
-const places = [
-    {
-        name: "Masmak fort",
-        image: 'https://via.placeholder.com/150/0000FF/808080?Text=Masmakfort',
-        type: 'Historical Interest',
-    },
-    {
-        name: "Masmak fort1",
-        image: 'https://via.placeholder.com/150/0000FF/808080?Text=Masmakfort2',
-        type: 'Historical Interest',
-    },
-    {
-        name: "Masmak fort2",
-        image: 'https://via.placeholder.com/150/000000/808080?Text=Masmakfort1',
-        type: 'Historical Interest',
-    }
-];
-
+import axios from 'axios';
 export default class PlacesScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: [],
         };
         this.renderItem = this.renderItem.bind(this);
+    }
+    componentDidMount() {
+        // fetch data from url
+        const url = 'https://drpl.info/api/places.json?offset=0&count=10';
+        axios.get(url)
+        .then(({data}) => this.setState({data})
+        )
+        .catch((err) => console.log(err));
+
     }
     renderItem = ({ item }) => {
         console.log(item);
         return (
-            <ListItem avatar={{ uri: item.image }}
+            <ListItem avatar={{ uri: item.thumb }}
                 roundAvatar
-                title={item.name}
-                subtitle={item.type}
+                title={item.title}
+                subtitle={item.category.name}
             />
         )
 
     }
     render() {
+        if (this.state.data.length === 0) {
+            return (
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+                    <ActivityIndicator size={1} color='red'/>
+                </View>
+            )
+        }
         return (
             <View style={{ flex: 1 }}>
                 <FlatList
-                    data={places}
+                    data={this.state.data}
                     renderItem={this.renderItem}
                 />
             </View>
