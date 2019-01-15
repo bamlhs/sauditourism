@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View, Dimensions, Image } from 'react-native';
+import { Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import StarRating from 'react-native-star-rating';
 
 const CustomizedListItem = ({
-    item,
+    item, onPress
 }) => (
+        <TouchableOpacity onPress={onPress}>
         <View style={{
             height: height / 2,
             backgroundColor: '#fff', marginTop: 10,
@@ -47,7 +48,7 @@ const CustomizedListItem = ({
                 </View>
 
             </View>
-        </View>
+        </View></TouchableOpacity>
     );
 
 export default CustomizedListItem;

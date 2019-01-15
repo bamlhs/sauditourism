@@ -4,6 +4,7 @@ from 'react-navigation';
 
 import DashBoardScreen from '../screens/DashBoardScreen/DashBoardScreen';
 import PlacesScreen from '../screens/PlacesScreen/PlacesScreen';
+import PlaceScreen from '../screens/PlaceScreen/PlaceScreen';
 const Navigation = createStackNavigator({
     palces: {
         screen: PlacesScreen
@@ -11,6 +12,9 @@ const Navigation = createStackNavigator({
     dash: {
         screen: DashBoardScreen
     },
+    place: {
+        screen: PlaceScreen
+    }
 
 }, {
     initialRouteName: 'palces',
