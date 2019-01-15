@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View, Dimensions, Image } from 'react-native';
 const { width, height } = Dimensions.get('window');
+import StarRating from 'react-native-star-rating';
+
 const CustomizedListItem = ({
     item,
 }) => (
@@ -11,10 +13,17 @@ const CustomizedListItem = ({
             <View style={{ flex: 4 }}>
                 <Image source={{ uri: item.large }}
                     resizeMode="stretch"
-                    style={{ borderRadius: 10, height: '100%', width: '100%' }} />
+                    style={{ borderRadius: 40, height: '100%', width: '100%' }} />
             </View>
             <View style={{ flex: 1, flexDirection: 'row-reverse', }}>
-                <View style={{ flex: 1, }}>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                <StarRating 
+                starSize={15}
+                fullStarColor='#6bd13d'
+                maxStars={5} 
+                rating={item.stars} 
+                disabled={false}
+                />
                 </View>
                 <View style={{ flex: 4 }}>
                     <Text style={{

@@ -1,5 +1,6 @@
 
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer } 
+from 'react-navigation';
 
 import DashBoardScreen from '../screens/DashBoardScreen/DashBoardScreen';
 import PlacesScreen from '../screens/PlacesScreen/PlacesScreen';
