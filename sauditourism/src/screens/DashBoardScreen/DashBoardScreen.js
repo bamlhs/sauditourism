@@ -4,6 +4,10 @@ import CustomizedButton from '../../components/CustomizedButton';
 const { width, height } = Dimensions.get("window");
 
 export default class DashBoardScreen extends Component {
+    static navigationOptions = {
+        title: 'Hello',
+        header: null
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +26,11 @@ export default class DashBoardScreen extends Component {
                         <View style={{ flex: 7 }}></View>
                         <View style={{ flex: 1, flexDirection: 'row', }}>
                             <View style={{ flex: 1, }}>
-                                <CustomizedButton title="Show Places" />
+                                <CustomizedButton
+                                    title="Show Places"
+                                    onPress={() => this.props.navigation.navigate('palces')
+                                    }
+                                />
                             </View>
                             <View style={{ flex: 1, }}>
                                 <CustomizedButton title="Add Place" />

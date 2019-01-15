@@ -3,6 +3,9 @@ import { View, Text, FlatList, Image, ActivityIndicator} from 'react-native';
 import { ListItem } from 'react-native-elements';
 import axios from 'axios';
 export default class PlacesScreen extends Component {
+    static navigationOptions = {
+        title: 'Places',
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -43,6 +46,7 @@ export default class PlacesScreen extends Component {
                 <FlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
+                    keyExtractor={(item) => (item.nid)}
                 />
             </View>
         );

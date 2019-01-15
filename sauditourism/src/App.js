@@ -8,12 +8,11 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import DashBoardScreen from './screens/DashBoardScreen/DashBoardScreen';
-import PlacesScreen from './screens/PlacesScreen/PlacesScreen';
+import AppContainer from './navigation/Navigation';
 export default class App extends Component{
   render() {
     return (
-      <PlacesScreen />
+      <AppContainer />
     );
   }
 }
