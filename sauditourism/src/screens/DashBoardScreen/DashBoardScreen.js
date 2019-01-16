@@ -33,7 +33,10 @@ export default class DashBoardScreen extends Component {
                                 />
                             </View>
                             <View style={{ flex: 1, }}>
-                                <CustomizedButton title="Add Place" />
+                                <CustomizedButton title="Add Place" 
+                                      onPress={() => this.props.navigation.navigate('add')
+                                    }
+                                />
                             </View>
                         </View>
                     </View>
