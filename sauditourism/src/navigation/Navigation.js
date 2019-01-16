@@ -21,7 +21,7 @@ const Navigation = createStackNavigator({
     }
 
 }, {
-    initialRouteName: 'dash',
+    initialRouteName: 'add',
     defaultNavigationOptions: {
         headerStyle: {
             backgroundColor: '#fff'
